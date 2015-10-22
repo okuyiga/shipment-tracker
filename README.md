@@ -1,9 +1,13 @@
 # Shipment Tracker
 Chrome Extension for keeping track of shipments
 
-Features
+## Features
+
 USPS Support
+
 UPS Support
+
 Fedex Support
+
 
 
