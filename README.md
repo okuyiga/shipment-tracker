@@ -11,3 +11,8 @@ Fedex Support
 
 
 
+## Resources
+
+[jQuery](https://jquery.com/)
+
+[artoo.js](https://medialab.github.io/artoo/)
