@@ -14,6 +14,9 @@ function main() {
 	// TODO: Inital startup check looping through tracking_numbers
 }
 
+/*
+ * Adds a tracking number to tracking_numbers and checks it's status
+ */
 function add_tracking_number() {
 
 	var tracking_number = txt_add_tracking_number.value;
@@ -33,6 +36,9 @@ function add_tracking_number() {
 	frm_add_tracking_number.reset();
 }
 
+/*
+ * Checks the shipping status of a tracking number, taking a source and tracking number
+ */
 function check_shipping_status(source, tracking_number) {
 
 	alert("Checking shipping status on tracking_number: " + tracking_number + " from source: " + source)
@@ -48,6 +54,9 @@ function check_shipping_status(source, tracking_number) {
 	}
 }
 
+/*
+ * Catches the response from check_shipping_status and prints to the log
+ */
 function reqListener (xhr) {
   var $sel = $(this.responseText);
   var status = artoo.scrape($sel.find('div.tracking-progress > div.progress-indicator > h2'), 'text')[0];
