@@ -3,11 +3,21 @@ Chrome Extension for keeping track of shipments
 
 ## Features
 
-USPS Support
+### USPS Support
 
-UPS Support
+USPS support is handled through web scraping using artoo.js.
 
-Fedex Support
+### UPS Support
+
+
+
+### Fedex Support
+
+### Chrome Sync'd Tracking Number List
+
+The Tracking Number List will leverage chrome.storage.sync to allow the user to track their shipments from anywhere.
+
+
 
 
 
