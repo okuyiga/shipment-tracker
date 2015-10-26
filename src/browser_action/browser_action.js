@@ -1,13 +1,15 @@
-const url_usps = 'https://tools.usps.com/go/TrackConfirmAction.action?tLabels=';
+"use strict";
 
-const log = document.getElementById('log')
+const url_usps = "https://tools.usps.com/go/TrackConfirmAction.action?tLabels=";
+
+const log = document.getElementById("log");
 
 // TODO: Add dropdown selector for source
-const frm_add_tracking_number = document.getElementById('frm_add_tracking_number')
-const txt_add_tracking_number = document.getElementById('txt_add_tracking_number')
-const btn_add_tracking_number = document.getElementById('btn_add_tracking_number')
+const frm_add_tracking_number = document.getElementById("frm_add_tracking_number");
+const txt_add_tracking_number = document.getElementById("txt_add_tracking_number");
+const btn_add_tracking_number = document.getElementById("btn_add_tracking_number");
 
-btn_add_tracking_number.addEventListener('click', add_tracking_number);
+btn_add_tracking_number.addEventListener("click", add_tracking_number);
 
 function main() {
 
@@ -15,7 +17,7 @@ function main() {
 }
 
 /*
- * Adds a tracking number to tracking_numbers and checks it's status
+ * Adds a tracking number to tracking_numbers and checks it"s status
  */
 function add_tracking_number() {
 
@@ -24,14 +26,14 @@ function add_tracking_number() {
 	// TODO: Actual validation per source
 	if (isNaN(tracking_number))
 	{
-		alert("Attempted to add invalid tracking_number: " + tracking_number)
+		alert("Attempted to add invalid tracking_number: " + tracking_number);
 	}
 	else
 	{
-		alert("Adding tracking_number to tracking_numbers: " + tracking_number)
+		alert("Adding tracking_number to tracking_numbers: " + tracking_number);
 		// TODO: Add to tracking_numbers
 
-		check_shipping_status('usps', tracking_number);
+		check_shipping_status("usps", tracking_number);
 	}
 	frm_add_tracking_number.reset();
 }
@@ -41,15 +43,15 @@ function add_tracking_number() {
  */
 function check_shipping_status(source, tracking_number) {
 
-	alert("Checking shipping status on tracking_number: " + tracking_number + " from source: " + source)
+	alert("Checking shipping status on tracking_number: " + tracking_number + " from source: " + source);
 
 	var xhr = new XMLHttpRequest();
-	xhr.addEventListener('load', reqListener);
+	xhr.addEventListener("load", reqListener);
 	xhr.tracking_number = tracking_number;
 
 	// TODO: Add logic for handling other sources
-	if (source == 'usps') {
-		xhr.open('GET', url_usps + tracking_number, true);
+	if (source == "usps") {
+		xhr.open("GET", url_usps + tracking_number, true);
 		xhr.send();
 	}
 }
@@ -59,7 +61,7 @@ function check_shipping_status(source, tracking_number) {
  */
 function reqListener (xhr) {
   var $sel = $(this.responseText);
-  var status = artoo.scrape($sel.find('div.tracking-progress > div.progress-indicator > h2'), 'text')[0];
+  var status = artoo.scrape($sel.find("div.tracking-progress > div.progress-indicator > h2"), "text")[0];
   log.innerHTML += xhr.target.tracking_number + "\t" + status + "<br/>";
 }
 
